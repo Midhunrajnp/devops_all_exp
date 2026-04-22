@@ -1,0 +1,54 @@
+STEP 1: Go to Desktop (so folder is easy to find)
+cd Desktop
+
+STEP 2: Create a new folder
+mkdir Git_Lab_Experiment1
+
+STEP 3: Go inside that folder
+cd Git_Lab_Experiment1
+
+STEP 4: Start Git in this folder
+git init
+’ now this folder becomes a git repository
+
+STEP 5: Check files
+ls
+ls -a   (shows hidden .git folder)
+
+STEP 6: Set your name and email (only first time)
+git config --global user.name "Meghana"
+git config --global user.email meghana@gmail.com
+
+STEP 7: Create a file
+echo "This is my first Git experiment" > README.txt
+
+STEP 8: Check status
+git status
+’ shows README.txt as untracked
+
+STEP 9: Add file to staging
+git add README.txt
+(or git add .)
+
+STEP 10: Check status again
+git status
+’ shows file ready to commit
+
+STEP 11: Save permanently (commit)
+git commit -m "Initial commit"
+
+STEP 12: Change the file
+echo "Git tracks file changes" >> README.txt
+
+STEP 13: Check status
+git status
+’ shows file modified
+
+STEP 14: Add and commit again
+git add README.txt
+git commit -m "Updated README file"
+
+STEP 15: See all saved versions
+git log
+
+history -a

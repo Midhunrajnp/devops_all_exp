@@ -1,0 +1,40 @@
+Step 1: Fork the repository on GitHub
+(Login to GitHub → Open git-lab-demo → Click Fork)
+
+Step 2: Clone the forked repository
+cd Desktop
+git clone https://github.com/YourUsername/git-lab-demo.git
+cd git-lab-demo
+
+Step 3: Create a new branch
+git branch feature-update
+git checkout feature-update
+
+Step 4: Modify a file
+notepad main.py
+
+(Add the following line)
+print("Change made in feature branch")
+
+Save and close the file.
+
+Step 5: Add and commit changes
+git add main.py
+git commit -m "Updated file in feature branch"
+
+Step 6: Push feature branch to forked repository
+git push origin feature-update
+
+Step 7: Create Pull Request on GitHub
+(Open GitHub → Pull Requests → New Pull Request → Create Pull Request)
+
+Step 8: Merge Pull Request
+(Click Merge Pull Request → Confirm merge)
+
+Step 9: Update local repository after merge
+git checkout main
+git pull origin main
+
+Step 10: Verify merge
+git status
+git log

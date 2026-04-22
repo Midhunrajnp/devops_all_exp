@@ -1,0 +1,116 @@
+# EXPERIMENT–6 : MAVEN
+
+# Step 1: Open Command Prompt
+# Step 2: Check Java installation
+java --version
+
+# Step 3: Check Maven installation
+mvn --version
+
+# Step 4: Create a new folder in Desktop named project
+cd %USERPROFILE%\Desktop
+mkdir project
+cd project
+
+# Step 5: Create a folder inside it named maven-project
+mkdir maven-project
+cd maven-project
+
+# Step 6: Generate Maven project
+mvn archetype:generate
+
+# Step 7: Choose a number you will get, type 2309
+# Step 8: Choose a number: 9 (choose latest version)
+
+# Step 9: Define value for property groupId
+org.bnm
+# or
+com.google
+
+# Step 10: Define value for property artifactId
+maven-demo
+
+# Step 11: Define value for property version
+1.0-SNAPSHOT
+
+# Step 12: Define value for property package
+org.bnm.demo
+
+# Step 13: Type Y and press Enter
+Y
+
+# Step 14: Go back to the folder you have created
+cd maven-demo
+
+# Step 15: Check project structure
+dir
+
+# Step 16: Open src/main/java/org/bnm/demo/App.java
+# Replace code with ANY ONE program below
+
+# ---------------- PROGRAM 1: HELLO WORLD ----------------
+package org.bnm.demo;
+
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+
+# ---------------- PROGRAM 2: LENGTH OF STRING ----------------
+package org.bnm.demo;
+
+public class App {
+    public static void main(String[] args) {
+        String s = "DevOps";
+        System.out.println("Length of string: " + s.length());
+    }
+}
+
+# ---------------- PROGRAM 3: AREA OF SQUARE ----------------
+package org.bnm.demo;
+
+public class App {
+    public static void main(String[] args) {
+        int side = 5;
+        int area = side * side;
+        System.out.println("Area of square: " + area);
+    }
+}
+
+# ---------------- PROGRAM 4: EVEN OR ODD ----------------
+package org.bnm.demo;
+
+public class App {
+    public static void main(String[] args) {
+        int n = 10;
+        if (n % 2 == 0)
+            System.out.println("Even number");
+        else
+            System.out.println("Odd number");
+    }
+}
+
+# ---------------- PROGRAM 5: SIMPLE INTEREST ----------------
+package org.bnm.demo;
+
+public class App {
+    public static void main(String[] args) {
+        int p = 1000, t = 2, r = 5;
+        int si = (p * t * r) / 100;
+        System.out.println("Simple Interest: " + si);
+    }
+}
+
+# Step 17: Go back to maven-demo folder
+cd maven-demo
+
+# Step 18: Build the project
+mvn clean package
+
+# Step 19: Go to target folder
+cd target
+
+# Step 20: Verify JAR file
+dir
+# Output: maven-demo-1.0-SNAPSHOT.jar

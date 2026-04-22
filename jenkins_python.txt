@@ -1,0 +1,54 @@
+# EXPERIMENT: JENKINS – EXECUTE PYTHON EVEN / ODD PROGRAM
+
+# Step 1: Create a folder in Desktop using File Explorer
+# Folder name: Jenkins_Python
+
+# Step 2: Inside the folder, create a Python file
+# File name: even_odd.py
+
+# Step 3: Open even_odd.py and write the program below
+
+num = 10
+
+if num % 2 == 0:
+    print("Even number")
+else:
+    print("Odd number")
+
+# Step 4: Save and close the file
+
+# Step 5: Open Command Prompt and go to the folder
+cd %USERPROFILE%\Desktop\Jenkins_Python
+
+# Step 6: Execute the Python file locally
+python even_odd.py
+
+# Expected output:
+# Even number
+
+# Step 7: Open Jenkins in browser
+# URL: http://localhost:8080
+
+# Step 8: Login to Jenkins
+
+# Step 9: Click New Item
+
+# Step 10: Enter job name
+# EvenOdd_Python_Job
+
+# Step 11: Select Freestyle project and click OK
+
+# Step 12: In Build section, click Add build step
+# Select "Execute Windows batch command"
+
+# Step 13: Enter the following command in build step
+cd /d C:\Users\megha\Desktop\Jenkins_Python
+"C:\Users\megha\AppData\Local\Programs\Python\Python310\python.exe" even_odd.py
+
+# Step 14: Click Save
+
+# Step 15: Click Build Now
+
+# Expected Jenkins Output:
+# Even number
+# Finished: SUCCESS

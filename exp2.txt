@@ -1,0 +1,84 @@
+Exp 2: Working with Git Branches
+
+1) Open a folder and create a new folder.
+2) Copy the path of the folder.
+3) Open Git Bash and paste the path using cd command.
+4) git init
+   -> To initialize Git in repository.
+
+5) Create a file using command:
+   notepad file1.txt
+
+6) Notepad opens, type:
+   this is initial content
+
+7) Save and close the notepad.
+
+8) Go to Git Bash and type:
+   git add file1.txt
+
+9) git commit -m "Initial commit"
+
+10) Check current branch:
+    git branch
+    -> Git shows main or master.
+
+11) Create feature branch:
+    git branch feature-branch
+
+12) Switch to feature branch:
+    git checkout feature-branch
+
+13) Modify file in feature branch:
+    notepad file1.txt
+
+14) Type:
+    this is feature branch modification
+
+15) Save and close the file.
+
+16) git add file1.txt
+
+17) git commit -m "Added new feature in feature branch"
+
+18) Switch back to master/main branch:
+    git checkout master
+
+19) Modify file in master branch:
+    notepad file1.txt
+
+20) Type:
+    this is main branch modification
+
+21) git add file1.txt
+
+22) git commit -m "Updated file in master branch"
+
+23) Merge feature branch:
+    git merge feature-branch
+    -> Conflict occurs
+
+24) Right click inside project folder
+    -> Show more options
+    -> Select TortoiseGit
+    -> Resolve
+
+25) Select file1.txt
+    -> Edit conflicts
+
+26) In TortoiseMerge:
+    -> Right click on "mine" (file1-local)
+    -> Select 3rd option (use block from right before left)
+    -> Click Save
+
+27) Close TortoiseMerge.
+
+28) git add file1.txt
+    -> Now conflict will not occur.
+
+29) git status
+
+30) git log
+
+31) Delete feature branch (optional):
+    git branch -d feature-branch

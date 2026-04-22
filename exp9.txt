@@ -1,0 +1,79 @@
+DevOps Experiment - 09
+
+Steps:
+
+STEP 1: Open Jenkins dashboard
+Open browser and go to http://localhost:8080
+Login to Jenkins
+
+STEP 2: Create a new pipeline job
+Click New Item
+Enter job name: Exp9_Pipeline
+Select Pipeline
+Click OK
+
+STEP 3: Configure pipeline script
+Scroll to Pipeline section
+Select Definition → Pipeline script
+
+STEP 4: Enter Build and Test pipeline script
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the project'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing the project'
+            }
+        }
+    }
+}
+
+STEP 5: Save and execute pipeline
+Click Save
+Click Build Now
+
+STEP 6: Modify pipeline to Hello World
+Click Configure → Pipeline section
+pipeline {
+    agent any
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World from Jenkins Pipeline'
+            }
+        }
+    }
+}
+
+STEP 7: Save and execute Hello World pipeline
+Click Save
+Click Build Now
+Check Console Output for Hello World message
+
+STEP 8: Modify pipeline to add two numbers
+Click Configure → Pipeline section
+pipeline {
+    agent any
+    stages {
+        stage('Addition') {
+            steps {
+                script {
+                    int a = 10
+                    int b = 20
+                    int sum = a + b
+                    echo "Addition of ${a} and ${b} is ${sum}"
+                }
+            }
+        }
+    }
+}
+
+STEP 9: Save and execute addition pipeline
+Click Save
+Click Build Now
+Verify addition result in Console Output

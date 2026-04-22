@@ -1,0 +1,38 @@
+Experiment 3: GitHub Repository Creation and Push
+
+Step 1: Configure Git (one time)
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+
+Step 2: Create repository on GitHub
+(Login to GitHub → New Repository → Name: git-lab-demo → Public → Create)
+
+Step 3: Clone the GitHub repository
+cd Desktop
+git clone https://github.com/YourUsername/git-lab-demo.git
+cd git-lab-demo
+
+Step 4: Create a local file
+notepad main.py
+
+(Type the following content in main.py)
+print("This file is from local machine")
+
+Save and close the file.
+
+Step 5: Add and commit the file
+git add main.py
+git commit -m "Add main.py file"
+
+Step 6: Push local code to GitHub
+git push -u origin main
+
+Step 7: Modify file on GitHub (online)
+(Edit README.md and add: Updated via GitHub)
+
+Step 8: Pull changes from GitHub
+git pull origin main
+
+Step 9: Verify updates
+git status
+git log

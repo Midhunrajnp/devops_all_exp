@@ -1,0 +1,101 @@
+DevOps Experiment - 10
+
+Steps:
+
+STEP 1: Create a new pipeline job
+Open Jenkins dashboard
+Click New Item
+Enter job name: Exp10_Visualization
+Select Pipeline
+Click OK
+
+STEP 2: Configure pipeline script
+Scroll to Pipeline section
+Select Definition → Pipeline script
+
+STEP 3: Enter Build and Test pipeline script
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Build stage executing'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Test stage executing'
+            }
+        }
+    }
+}
+
+STEP 4: Save and run pipeline
+Click Save
+Click Build Now
+
+STEP 5: View pipeline execution graph
+Click job name
+Click Stage View
+Observe Build and Test stages shown in pipeline graph
+
+STEP 6: View console logs
+Click build number
+Click Console Output
+Analyze log messages of each stage
+
+STEP 7: Modify pipeline to Hello World
+Click Configure → Pipeline section
+pipeline {
+    agent any
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World from Jenkins'
+            }
+        }
+    }
+}
+
+STEP 8: Save and run Hello World pipeline
+Click Save
+Click Build Now
+Check Console Output
+
+STEP 9: Modify pipeline to addition with failure
+Click Configure → Pipeline section
+pipeline {
+    agent any
+    stages {
+        stage('Addition') {
+            steps {
+                script {
+                    int x = 5
+                    int y = 7
+                    echo "Sum = ${x + y}"
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                error 'Addition test failed'
+            }
+        }
+    }
+}
+
+STEP 10: Save and run pipeline
+Click Save
+Click Build Now
+
+STEP 11: Analyze failure using graph and logs
+Open Stage View → observe failed stage in RED
+Open Console Output → identify error message
+
+STEP 12: Fix the error
+Remove error statement
+Save pipeline
+Build again successfully
+
+U shld redownload  pipeline view stage
+Even though it's 100 re download it u'll get
