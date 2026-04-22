@@ -1,0 +1,192 @@
+Perfect — your Jenkins setup is working.
+The failure happened because:
+
+1. `python` is not installed/configured in Jenkins PATH
+2. Archive step missing configuration
+3. You want a **simple Java build only** (no artifact archiving)
+
+So let’s make this **very simple + exam-safe**.
+
+---
+
+# 🧪 Experiment 7: Jenkins Freestyle Job (Simple Java Version)
+
+**Goal:**
+✔ Pull Java code from GitHub
+✔ Compile Java program
+✔ Run Java program
+✔ Show success in Jenkins console
+
+---
+
+# 🚀 STEP 1: Create Fresh GitHub Repo
+
+Create repo on GitHub:
+
+```text id="1f6r1n"
+jenkins-java-exp7
+```
+
+Public repo.
+
+---
+
+# 🚀 STEP 2: Add Java Program to GitHub
+
+Create file:
+
+```text id="z8r3k7"
+Hello.java
+```
+
+Paste:
+
+```java id="mw0v55"
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello from Jenkins Java Build");
+    }
+}
+```
+
+Commit.
+
+---
+
+# 🚀 STEP 3: Create Jenkins Freestyle Job
+
+Open Jenkins
+
+1. Dashboard → New Item
+2. Name:
+
+```text id="v8f1nm"
+Exp7_Java_Freestyle
+```
+
+3. Select:
+
+```text id="72yhyx"
+Freestyle Project
+```
+
+4. Click OK
+
+---
+
+# 🚀 STEP 4: Connect GitHub Repo
+
+In Job Config:
+
+### Source Code Management
+
+✔ Git
+
+Repo URL:
+
+```text id="jlwmq1"
+https://github.com/<your-username>/jenkins-java-exp7.git
+```
+
+---
+
+# 🚀 STEP 5: Add Build Step
+
+Scroll → Build
+
+Click:
+
+```text id="g8m7cx"
+Add Build Step
+```
+
+Choose:
+
+```text id="d9zj4k"
+Execute Windows batch command
+```
+
+---
+
+# 🚀 STEP 6: Add Java Build Commands
+
+Paste:
+
+```batch id="j2ql9r"
+javac Hello.java
+java Hello
+```
+
+---
+
+# 🚀 STEP 7: Save
+
+Click:
+
+```text id="z4x2kc"
+Save
+```
+
+---
+
+# 🚀 STEP 8: Build Now
+
+Click:
+
+```text id="i7k5lp"
+Build Now
+```
+
+---
+
+# 🚀 STEP 9: Open Console Output
+
+You should see:
+
+```text id="m5j0ye"
+Hello from Jenkins Java Build
+Finished: SUCCESS
+```
+
+---
+
+# ✅ Result
+
+GitHub Java code was pulled and executed successfully using Jenkins Freestyle Job.
+
+---
+
+# 📸 Screenshots
+
+1. GitHub Java file
+2. Jenkins Git URL
+3. Build command
+4. Console Output SUCCESS
+
+---
+
+# 🎯 Viva Answer
+
+> Jenkins Freestyle Job automates build execution by pulling code from GitHub and running build commands.
+
+---
+
+# 🔥 Why this is better for you
+
+✔ No Python issue
+✔ No artifact issue
+✔ Very simple
+✔ Java-based
+✔ Easy console output
+✔ Exam-safe
+
+---
+
+# 🔥 EXACT BUILD COMMAND YOU NEED
+
+```batch id="yqjlwm"
+javac Hello.java
+java Hello
+```
+
+That’s all.
