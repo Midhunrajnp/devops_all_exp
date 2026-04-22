@@ -1,0 +1,321 @@
+# 🧪 Experiment 8: Jenkins Build Triggers
+
+**Tasks:** Configure SCM polling and GitHub webhook
+**Outcome:** Automatic build triggering
+
+We’ll do this **fresh like an exam**, with a simple Java repo + Jenkins Freestyle Job.
+
+---
+
+# 🔥 What this experiment means
+
+Instead of clicking **Build Now** manually:
+
+* Jenkins automatically checks GitHub changes
+* Jenkins automatically starts build
+
+Two methods:
+
+1. **SCM Polling** → Jenkins checks GitHub repeatedly
+2. **GitHub Webhook** → GitHub instantly notifies Jenkins
+
+---
+
+# 🚀 PART 1 — Create Fresh GitHub Repository
+
+Create repo on GitHub
+
+Repository name:
+
+```text id="ljlwm1"
+jenkins-trigger-exp8
+```
+
+Public repo.
+
+---
+
+# 🚀 PART 2 — Add Java Program
+
+Create file:
+
+```text id="jlwm2a"
+Hello.java
+```
+
+Code:
+
+```java id="jlwm3a"
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Build Trigger Experiment");
+    }
+}
+```
+
+Commit.
+
+---
+
+# 🚀 PART 3 — Create Jenkins Freestyle Job
+
+Open Jenkins
+
+1. Dashboard → New Item
+2. Name:
+
+```text id="jlwm4a"
+Exp8_Build_Trigger
+```
+
+3. Select:
+
+```text id="jlwm5a"
+Freestyle Project
+```
+
+4. Click OK
+
+---
+
+# 🚀 PART 4 — Connect GitHub Repo
+
+### Source Code Management
+
+✔ Git
+
+Repository URL:
+
+```text id="jlwm6a"
+https://github.com/<your-username>/jenkins-trigger-exp8.git
+```
+
+---
+
+# 🚀 PART 5 — Add Build Command
+
+Build → Execute Windows Batch Command
+
+Paste:
+
+```batch id="jlwm7a"
+javac Hello.java
+java Hello
+```
+
+---
+
+# 🚀 PART 6 — Configure SCM Polling
+
+Scroll → **Build Triggers**
+
+✔ Select:
+
+```text id="jlwm8a"
+Poll SCM
+```
+
+---
+
+## Add polling schedule
+
+Paste:
+
+```text id="jlwm9a"
+* * * * *
+```
+
+---
+
+### Meaning:
+
+Checks GitHub every minute.
+
+---
+
+# 🚀 PART 7 — Save Job
+
+Click Save.
+
+---
+
+# 🚀 PART 8 — Test SCM Polling
+
+Go to GitHub repo.
+
+Edit:
+
+```text id="jlwm10a"
+Hello.java
+```
+
+Change output:
+
+```java id="jlwm11a"
+System.out.println("Trigger test");
+```
+
+Commit.
+
+---
+
+Wait 1 minute.
+
+Jenkins automatically builds.
+
+---
+
+# 🚀 PART 9 — Configure GitHub Webhook
+
+---
+
+## STEP 1: Enable GitHub Trigger in Jenkins
+
+Open job config.
+
+Build Triggers → Check:
+
+```text id="jlwm12a"
+GitHub hook trigger for GITScm polling
+```
+
+Save.
+
+---
+
+## STEP 2: Configure Webhook in GitHub
+
+Open repo → Settings → Webhooks → Add Webhook
+
+---
+
+### Payload URL
+
+Use:
+
+```text id="jlwm13a"
+http://localhost:8080/github-webhook/
+```
+
+---
+
+⚠ Important:
+
+If localhost doesn’t work externally, use:
+
+* ngrok tunnel
+* local IP
+* lab server IP
+
+---
+
+### Content Type
+
+Choose:
+
+```text id="jlwm14a"
+application/json
+```
+
+---
+
+### Events
+
+Choose:
+
+```text id="jlwm15a"
+Just the push event
+```
+
+---
+
+Save webhook.
+
+---
+
+# 🚀 PART 10 — Test Webhook
+
+Edit GitHub file again.
+
+Commit change.
+
+Immediately Jenkins starts build.
+
+---
+
+# 🚀 PART 11 — Verify Build Trigger
+
+Open Jenkins → Build History
+
+You’ll see automatic build.
+
+Console Output:
+
+```text id="jlwm16a"
+Started by GitHub push
+```
+
+---
+
+# ✅ Result
+
+SCM polling and GitHub webhook successfully triggered Jenkins builds automatically.
+
+---
+
+# 📸 Screenshots
+
+1. GitHub repo
+2. Jenkins SCM config
+3. Poll SCM enabled
+4. Webhook config
+5. Auto build triggered
+6. Console Output
+
+---
+
+# 🎯 Viva Answers
+
+### ❓ What is SCM Polling?
+
+> Jenkins periodically checks repository changes.
+
+---
+
+### ❓ What is Webhook?
+
+> GitHub directly notifies Jenkins when code changes occur.
+
+---
+
+### ❓ Difference?
+
+| SCM Polling    | Webhook         |
+| -------------- | --------------- |
+| Periodic check | Instant trigger |
+| Slower         | Faster          |
+
+---
+
+### ❓ Which is better?
+
+> Webhook because it is event-driven.
+
+---
+
+# 🧠 Exam Memory Flow
+
+```text id="jlwm17a"
+GitHub Repo → Jenkins Job → Poll SCM → Webhook → Auto Build
+```
+
+---
+
+# 🔥 Very Important
+
+SCM Polling = Easy marks
+Webhook = High marks
+
+---
+
+This is now **full exam-ready Experiment 8**.
